@@ -3,7 +3,6 @@ package com.labs.lab402.repository;
 import com.labs.lab402.model.Employee;
 import com.labs.lab402.model.Patient;
 import com.labs.lab402.model.STATUS;
-import org.aspectj.lang.annotation.After;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class EmployeRepositoryTest {
 
     @Autowired
-    EmployeRepository employeRepository;
+    EmployeeRepository employeRepository;
 
     @Autowired
     PatientRepository patientRepository;
@@ -49,12 +48,12 @@ class EmployeRepositoryTest {
     }
 
     @Test
-    public void testSubjectCreatedCorrectly(){
+    public void testEmployeeCreatedCorrectly(){
         assertEquals(1,employeRepository.findAll().size());
     }
 
     @Test
-    public void testSubject2CreatedCorrectly(){
+    public void testPatientCreatedCorrectly(){
         assertEquals(1,patientRepository.findAll().size());
     }
 

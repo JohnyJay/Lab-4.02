@@ -1,6 +1,9 @@
 package com.labs.lab402.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,9 +21,18 @@ public class Patient {
     private LocalDate dateOfBirth;
 
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name="admitted_by")
     private Employee employee;
 
 
-
+    @Override
+    public String toString() {
+        return "Patient{" +
+                "patientId=" + patientId +
+                ", name='" + name + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", employee=" + employee.getName() +
+                '}';
+    }
 }
